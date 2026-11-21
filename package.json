@@ -1,0 +1,18 @@
+{
+  "name": "toybox-transit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Ad-free toy-vehicle puzzle with verified, seeded level generation. The game itself is a no-build static site; Node is only used for tests and tooling.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/",
+    "validate": "node scripts/validate.mjs",
+    "pool": "node scripts/build-pool.mjs",
+    "artifact": "node scripts/build-artifact.mjs",
+    "serve": "python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  },
+  "license": "MIT"
+}

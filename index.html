@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#f6efe3">
+    <title>Toybox Transit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@700;800;900&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <header id="hud">
+        <button id="btn-restart" class="icon-btn" aria-label="Restart level" title="Restart">
+            <svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7" /><path d="M4 4v5h5" /></svg>
+        </button>
+        <div class="level-badge">
+            <div id="level-num">Level 1</div>
+            <div id="level-name"></div>
+        </div>
+        <div class="hud-right">
+            <button id="btn-undo" class="icon-btn" aria-label="Undo last move" title="Undo">
+                <svg viewBox="0 0 24 24"><path d="M9 14 4 9l5-5" /><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11" /></svg>
+            </button>
+            <button id="btn-menu" class="icon-btn" aria-label="Menu" title="Menu">
+                <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+            </button>
+        </div>
+    </header>
+
+    <div id="ribbon" aria-label="Passengers coming up">
+        <span id="pax-left" class="pax-left">0 left</span>
+        <span id="runs" class="runs"></span>
+    </div>
+
+    <div id="hint" class="hint hidden"></div>
+    <div id="toast" class="toast hidden" role="status"></div>
+
+    <div id="win-banner" class="banner hidden">
+        <div class="banner-title">Cleared!</div>
+        <button id="btn-next" class="btn-primary">Next level ➜</button>
+    </div>
+
+    <div id="loss-card" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="loss-title">
+        <div class="card">
+            <h2 id="loss-title">Jammed!</h2>
+            <p id="loss-reason"></p>
+            <div class="card-actions">
+                <button id="btn-loss-undo" class="btn-primary">Undo last move</button>
+                <button id="btn-loss-restart" class="btn-secondary">Restart</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="menu" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+        <div class="card">
+            <img class="emblem" src="assets/emblem.jpg" alt="" width="72" height="72">
+            <h2 id="menu-title">Toybox Transit</h2>
+            <div class="level-info" id="level-info"></div>
+            <div class="menu-row two">
+                <button id="btn-copy-seed" class="btn-secondary">Copy seed</button>
+                <button id="btn-fav" class="btn-secondary">☆ Favorite</button>
+            </div>
+            <form id="seed-form" class="seed-form">
+                <label for="seed-input">Play a seed</label>
+                <div class="seed-row">
+                    <input id="seed-input" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="g1-hard-1234">
+                    <button type="submit" class="btn-secondary">Play</button>
+                </div>
+                <div id="seed-error" class="seed-error" hidden></div>
+            </form>
+            <div id="fav-list" class="fav-list"></div>
+            <div class="menu-row two">
+                <button id="btn-sound" class="btn-secondary">Sound: on</button>
+                <button id="btn-music" class="btn-secondary">Music: on</button>
+            </div>
+            <div class="menu-row">
+                <button id="btn-menu-close" class="btn-primary">Back to game</button>
+            </div>
+            <div class="build-id" id="build-id"></div>
+        </div>
+    </div>
+
+    <script src="libs/three.min.js"></script>
+    <script src="src/audio.js"></script>
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>

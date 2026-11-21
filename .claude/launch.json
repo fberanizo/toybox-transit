@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "toybox-transit",
+      "runtimeExecutable": "wsl.exe",
+      "runtimeArgs": ["-e", "bash", "-lc", "cd ~/bus-jam && exec python3 -m http.server 8000 --bind 0.0.0.0"],
+      "port": 8000
+    }
+  ]
+}
